@@ -1,37 +1,38 @@
 import { styled, Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Typography } from "@mui/material"
 import { NavLink } from "react-router-dom"
+import "./Menu.css"
 
 const MyNavLink = styled(NavLink)(() => ({
     textDecoration: 'none',
-    color: 'black'
+    color: 'black',
+    width: '100%',
 }))
 
 const Menu = () => {
     return (
-        <Box sx={{ minWidth: 250 }}>
-            <Typography variant="h4" sx={{ paddingY: 4, paddingLeft: 1, bgcolor: '#2E5361', color: 'white' }}>HospitalityHub</Typography>
+        <Box sx={{ minWidth: 250, backgroundColor: '#FAFAFA' }}>
+            <Typography variant="h4" sx={{ paddingY: 4, paddingLeft: 1, bgcolor: '#4a595b', color: 'white' }}>HospitalityHub</Typography>
             <List sx={{ marginTop: 10 }}>
                 <ListItem disablePadding>
-                    <ListItemButton>
-                        <MyNavLink to="/">
+                    <MyNavLink to="/" activeClassName="active">
+                        <ListItemButton>
                             <ListItemText primary="Dashboard" />
-                        </MyNavLink>
-                        
-                    </ListItemButton>
+                        </ListItemButton>
+                    </MyNavLink>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton>
-                        <MyNavLink to="/reservations">
+                    <MyNavLink to="/reservations">
+                        <ListItemButton>
                             <ListItemText primary="Reservations" />
-                        </MyNavLink>
-                    </ListItemButton>
+                        </ListItemButton>
+                    </MyNavLink>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton>
-                        <MyNavLink to="/guests">
+                    <MyNavLink to="/guests">
+                        <ListItemButton>
                             <ListItemText primary="Guests" />
-                        </MyNavLink>
-                    </ListItemButton>
+                        </ListItemButton>
+                    </MyNavLink>
                 </ListItem>
             </List>
             <Divider />

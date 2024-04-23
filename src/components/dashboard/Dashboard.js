@@ -77,7 +77,7 @@ const Dashboard = () => {
                     Room Alerts
                     
                 </Typography>
-                <ArrowForwardTwoTone sx={{ fontSize: 30, color: 'blue', cursor: 'pointer', backgroundColor: 'white'}} />
+                <ArrowForwardTwoTone sx={{ fontSize: 30, color: '#2E5361', cursor: 'pointer', backgroundColor: 'white'}} />
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: "space-between", flexWrap: "wrap" }}>
                     <RoomAlertCard />
