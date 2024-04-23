@@ -21,10 +21,10 @@ const rows = [
 ];
 
 
-const Reservations = () => {
+const Rooms = () => {
     return (
         <Container>
-            <Typography variant="h4" sx={{ marginY: 4 }}>Reservations</Typography>
+            <Typography variant="h4" sx={{ marginY: 4 }}>Rooms</Typography>
             <TableContainer component={Paper} sx={{ minHeight: '700px'}}>
                 <Table aria-label='simple table'>
                     <TableHead>
@@ -58,4 +58,4 @@ const Reservations = () => {
     )
 }
 
-export default Reservations
+export default Rooms

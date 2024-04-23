@@ -1,6 +1,7 @@
 import { styled, Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Typography, Paper } from "@mui/material"
 import { NavLink } from "react-router-dom"
 import "./Menu.css"
+import { useTheme } from "@mui/material/styles"
 
 const MyNavLink = styled(NavLink)(() => ({
     textDecoration: 'none',
@@ -9,16 +10,17 @@ const MyNavLink = styled(NavLink)(() => ({
 }))
 
 const Menu = () => {
+
     return (
-        <Box sx={{ minWidth: 250, backgroundColor: '#FAFAFA' }}>
-            <Typography variant="h4" sx={{ paddingY: 4, paddingLeft: 1, bgcolor: '#4a595b', color: 'white' }}>HospitalityHub</Typography>
+        <Box sx={{ minWidth: 250, backgroundColor: '#FAFAFA'}}>
+            <Typography variant="h4" sx={{  paddingY: 4, paddingLeft: 1, color: 'white', bgcolor: '#143136', fontFamily: 'fantasy', letterSpacing: '2px' }}>HospitalityHub</Typography>
             <Paper sx={{ marginY: 5, padding: 2}} elevation={0}>
                 <Typography variant="h6">Michael</Typography>
                 <Typography>Administrator</Typography>
             </Paper>
             <List sx={{ marginTop: 10 }}>
                 <ListItem disablePadding>
-                    <MyNavLink to="/" activeClassName="active">
+                    <MyNavLink to="/">
                         <ListItemButton>
                             <ListItemText primary="Dashboard" />
                         </ListItemButton>
@@ -35,6 +37,13 @@ const Menu = () => {
                     <MyNavLink to="/guests">
                         <ListItemButton>
                             <ListItemText primary="Guests" />
+                        </ListItemButton>
+                    </MyNavLink>
+                </ListItem>
+                <ListItem disablePadding>
+                    <MyNavLink to="/rooms">
+                        <ListItemButton>
+                            <ListItemText primary="Rooms" />
                         </ListItemButton>
                     </MyNavLink>
                 </ListItem>

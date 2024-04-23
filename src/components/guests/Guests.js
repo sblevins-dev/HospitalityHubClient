@@ -25,8 +25,8 @@ const Guests = () => {
     return (
         <Container>
             <Typography variant="h4" sx={{ marginY: 4 }}>Guests</Typography>
-            <TableContainer component={Paper}>
-                <Table aria-label='simple table'>
+            <TableContainer component={Paper} sx={{ minHeight: '700px'}}>
+                <Table aria-label='simple table' >
                     <TableHead>
                         <TableRow>
                             <TableCell>Dessert 100g serving</TableCell>
