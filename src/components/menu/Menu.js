@@ -1,4 +1,4 @@
-import { styled, Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Typography } from "@mui/material"
+import { styled, Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Typography, Paper } from "@mui/material"
 import { NavLink } from "react-router-dom"
 import "./Menu.css"
 
@@ -12,6 +12,10 @@ const Menu = () => {
     return (
         <Box sx={{ minWidth: 250, backgroundColor: '#FAFAFA' }}>
             <Typography variant="h4" sx={{ paddingY: 4, paddingLeft: 1, bgcolor: '#4a595b', color: 'white' }}>HospitalityHub</Typography>
+            <Paper sx={{ marginY: 5, padding: 2}} elevation={0}>
+                <Typography variant="h6">Michael</Typography>
+                <Typography>Administrator</Typography>
+            </Paper>
             <List sx={{ marginTop: 10 }}>
                 <ListItem disablePadding>
                     <MyNavLink to="/" activeClassName="active">

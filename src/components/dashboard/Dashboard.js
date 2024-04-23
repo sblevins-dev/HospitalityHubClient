@@ -20,7 +20,7 @@ const Dashboard = () => {
             <Box sx={{ width: "100%", marginTop: "50px" }}>
                 <Typography variant="h5" sx={{ marginBottom: 2 }}>Monday Feb 3, 2023</Typography>
                 <Box gap={2} sx={{ display: 'flex', minHeight: { xs: "600px", md: "600px", lg: "300px" }, height: "100%", width: "100%", flexWrap: { xs: "wrap", lg: "nowrap" }, justifyContent: "space-between" }}>
-                    <div style={{position: 'relative', overflow: 'hidden', minWidth: '500px', maxHeight: '300px', borderRadius: '10px'}}>
+                    <div style={{position: 'relative', overflow: 'hidden', minWidth: '500px', maxHeight: '300px', borderRadius: '5px'}}>
                         <div className="img-overlay" style={{ position: 'absolute', height: '100%', width: '100%', top: 0, left: 0, backgroundColor: 'rgba(0, 0, 0, 0.5)', objectFit: 'cover'}}>
 
                         </div>
