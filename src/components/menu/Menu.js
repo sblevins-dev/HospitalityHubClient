@@ -1,5 +1,10 @@
-import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Typography } from "@mui/material"
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { styled, Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Typography } from "@mui/material"
+import { NavLink } from "react-router-dom"
+
+const MyNavLink = styled(NavLink)(() => ({
+    textDecoration: 'none',
+    color: 'black'
+}))
 
 const Menu = () => {
     return (
@@ -8,17 +13,24 @@ const Menu = () => {
             <List sx={{ marginTop: 10 }}>
                 <ListItem disablePadding>
                     <ListItemButton>
-                        <ListItemText primary="Dashboard" />
+                        <MyNavLink to="/">
+                            <ListItemText primary="Dashboard" />
+                        </MyNavLink>
+                        
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
                     <ListItemButton>
-                        <ListItemText primary="Reservations" />
+                        <MyNavLink to="/reservations">
+                            <ListItemText primary="Reservations" />
+                        </MyNavLink>
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
                     <ListItemButton>
-                        <ListItemText primary="Guests" />
+                        <MyNavLink to="/guests">
+                            <ListItemText primary="Guests" />
+                        </MyNavLink>
                     </ListItemButton>
                 </ListItem>
             </List>
