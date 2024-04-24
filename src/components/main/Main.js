@@ -7,8 +7,7 @@ import Rooms from "../rooms/Rooms"
 
 const Main = () => {
   return (
-    <Box className="main-container" sx={{ width: '100%', position: 'relative', overflowY: 'scroll'}}>
-        <Box sx={{ bgcolor: '#eaf5f8', height: '70%', position: 'absolute', top: 0, left: 0, width: '100%', zIndex: '-1' }} />
+    <Box className="main-container" sx={{ width: '100%', overflowY: 'scroll'}}>
           <Routes>
             <Route path="/" element={<Dashboard/>} />
             <Route path="/reservations" element={<Reservations />} />

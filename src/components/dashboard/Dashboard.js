@@ -21,21 +21,21 @@ const Dashboard = () => {
             <Box sx={{ width: "100%", marginTop: "50px" }}>
                 <Typography variant="h5" sx={{ marginBottom: 2 }}>Monday Feb 3, 2023</Typography>
                 <Box gap={2} sx={{ display: 'flex', minHeight: { xs: "600px", md: "600px", lg: "300px" }, height: "100%", width: "100%", flexWrap: { xs: "wrap", lg: "nowrap" }, justifyContent: "space-between"}}>
-                    <div style={{ position: 'relative', overflow: 'hidden', minWidth: '500px', maxHeight: '300px', borderRadius: '5px' }}>
+                    <Paper style={{ position: 'relative', overflow: 'hidden', maxHeight: '300px', width: '100%' }}>
                         <div className="img-overlay" style={{ position: 'absolute', height: '100%', width: '100%', top: 0, left: 0, backgroundColor: 'rgba(0, 0, 0, 0.5)', objectFit: 'cover' }}>
 
                         </div>
                         <img src='https://th.bing.com/th/id/OIP.EZU1Bp42wz2-PAl3Ku9ZeQHaF3?rs=1&pid=ImgDetMain' style={{ objectFit: "cover", width: '100%', height: "100%", backgroundPosition: 'bottom' }} />
-                    </div>
+                    </Paper>
 
-                    <Grid container rowSpacing={2} columnSpacing={2} width={"100%"} height={"100%"} sx={{ alignContent: "right", justifyContent: "center" }} >
+                    <Grid container spacing={2} maxWidth={{xs: '100%', }} height={"100%"} sx={{ alignContent: "right", justifyContent: "center" }} >
                         <Grid item xs={6}>
                             <StatItem>
                                 <Typography variant="h6">Occupied</Typography>
                                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
                                     <Typography variant="h4">80</Typography>
-                                    <Button  sx={{ color: '#143136', fontWeight: 'bold'}}>View All</Button>
+                                    <Button  sx={{ fontWeight: 'bold'}}>View All</Button>
                                 </Box>
                             </StatItem>
 
@@ -46,7 +46,7 @@ const Dashboard = () => {
                                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
                                     <Typography variant="h4">20</Typography>
-                                    <Button  href="/rooms" sx={{ color: '#143136', fontWeight: 'bold'}}>View All</Button>
+                                    <Button  href="/rooms" sx={{ fontWeight: 'bold'}}>View All</Button>
                                 </Box>
                             </StatItem>
                         </Grid>
@@ -56,7 +56,7 @@ const Dashboard = () => {
                                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
                                     <Typography variant="h4">12</Typography>
-                                    <Button  sx={{ color: '#143136', fontWeight: 'bold'}}>View All</Button>
+                                    <Button  sx={{ fontWeight: 'bold'}}>View All</Button>
                                 </Box>
                             </StatItem>
                         </Grid>
@@ -67,7 +67,7 @@ const Dashboard = () => {
                                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
                                     <Typography variant="h4">2</Typography>
-                                    <Button  href="/reservations" sx={{ color: '#143136', fontWeight: 'bold'}}>View All</Button>
+                                    <Button  href="/reservations" sx={{ fontWeight: 'bold'}}>View All</Button>
                                 </Box>
                             </StatItem>
 
@@ -82,9 +82,9 @@ const Dashboard = () => {
                         Room Alerts
 
                     </Typography>
-                    <ArrowForwardTwoTone sx={{ fontSize: 30, color: '#143136', transition: 'all 0.3s ease-in-out', '&:hover': { bgcolor: '#143136', color: 'white'}, cursor: 'pointer', backgroundColor: 'white' }} />
+                    <ArrowForwardTwoTone sx={{ bgcolor: '#335dff', color: 'white', fontSize: 30, transition: 'all 0.3s ease-in-out', cursor: 'pointer' }} />
                 </Box>
-                <Box sx={{ display: 'flex', justifyContent: "space-between", flexWrap: "wrap" }}>
+                <Box gap={2} sx={{ display: 'flex', justifyContent: "space-between", flexWrap: "wrap" }}>
                     <RoomAlertCard />
                     <RoomAlertCard />
                     <RoomAlertCard />

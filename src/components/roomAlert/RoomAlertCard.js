@@ -8,7 +8,7 @@ const RoomAlertItem = styled(Paper)(() => ({
     flexDirection: "column",
     minHeight: "200px",
     minWidth: "270px",
-    backgroundColor: "#FCFCFC"
+    backgroundColor: "#FCFCFC",
 }));
 
 const RoomAlertItemDiv = styled(Box)(() => ({
@@ -19,11 +19,11 @@ const RoomAlertItemDiv = styled(Box)(() => ({
 const RoomAlertCard = () => {
     return (
         <>
-            <RoomAlertItem>
+            <RoomAlertItem sx={{ width: {md: '100%', lg: '270px'}}}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span>Icon</span>
                     <h4>Locked Door</h4>
-                    <Button sx={{ ":hover": {color: '#143136'}, transition: 'all 0.3s ease-in-out', bgcolor: '#143136', color: 'white', fontWeight: 'bold'}}>Actions</Button>
+                    <Button variant="contained" sx={{ transition: 'all 0.3s ease-in-out', fontWeight: 'bold'}}>Actions</Button>
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', rowGap: "10px" }}>
                     <RoomAlertItemDiv>

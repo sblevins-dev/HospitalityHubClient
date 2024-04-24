@@ -12,13 +12,14 @@ const MyNavLink = styled(NavLink)(() => ({
 const Menu = () => {
 
     return (
-        <Box sx={{ minWidth: 250, backgroundColor: '#FAFAFA'}}>
-            <Typography variant="h4" sx={{  paddingY: 4, paddingLeft: 1, color: 'white', bgcolor: '#143136', fontFamily: 'fantasy', letterSpacing: '2px' }}>HospitalityHub</Typography>
-            <Paper sx={{ marginY: 5, padding: 2}} elevation={0}>
-                <Typography variant="h6">Michael</Typography>
-                <Typography>Administrator</Typography>
-            </Paper>
-            <List sx={{ marginTop: 10 }}>
+        <Box sx={{ borderRight: '1px solid rgb(240, 240, 240)'}}>
+            <Typography variant="h4" sx={{  paddingY: 4, bgcolor: '#335dff', paddingX: 1, color: 'white', fontFamily: 'fantasy', letterSpacing: '2px' }}>HospitalityHub</Typography>
+            <Box sx={{ marginY: 5, padding: 2,}} elevation={0}>
+                <Typography variant="h5">Michael Levito</Typography>
+                <Typography variant="body2">Administrator</Typography>
+            </Box>
+            <Divider />
+            <List >
                 <ListItem disablePadding>
                     <MyNavLink to="/">
                         <ListItemButton>
