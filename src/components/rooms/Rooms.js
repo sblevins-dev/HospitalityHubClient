@@ -1,27 +1,22 @@
 import { Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
-import React from 'react'
-
-
-
-const rows = [
-    {
-        name: 'Frozen yoghurt',
-        calories: 159,
-        fat: 16.0,
-        carbs: 4,
-        protein: 5
-    },
-    {
-        name: 'Frozen yoghurt',
-        calories: 159,
-        fat: 16.0,
-        carbs: 4,
-        protein: 5
-    }
-];
-
+import React, { useContext, useEffect } from 'react'
+import api from '../../api/axiosConfig'
+import { MyContext } from '../../context/MyContext'
 
 const Rooms = () => {
+
+    const { roomList, setRoomList } = useContext(MyContext);
+
+    const getRooms = async () => {
+        const resp = await api.get('/rooms');
+
+        setRoomList(resp.data);
+    }
+
+    useEffect(() => {
+        if (roomList.length <= 0) getRooms();
+    }, [])
+
     return (
         <Container>
             <Typography variant="h4" sx={{ marginY: 4 }}>Rooms</Typography>
@@ -29,25 +24,25 @@ const Rooms = () => {
                 <Table aria-label='simple table'>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Dessert 100g serving</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat</TableCell>
-                            <TableCell align="right">Carbs</TableCell>
-                            <TableCell align="right">Protein</TableCell>
+                            <TableCell>Room</TableCell>
+                            <TableCell align="right">Beds</TableCell>
+                            <TableCell align="right">Floor Number</TableCell>
+                            <TableCell align="right">Status</TableCell>
+                            <TableCell align="right">Description</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map(row => (
-                            <TableRow key={row.name}
+                        {roomList.map(room => (
+                            <TableRow key={room.id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
-                                    {row.name}
+                                    {room.roomNumber}
                                 </TableCell>
-                                <TableCell align="right">{row.calories}</TableCell>
-                                <TableCell align="right">{row.fat}</TableCell>
-                                <TableCell align="right">{row.carbs}</TableCell>
-                                <TableCell align="right">{row.protein}</TableCell>
+                                <TableCell align="right">{room.beds}</TableCell>
+                                <TableCell align="right">{room.floorNumber}</TableCell>
+                                <TableCell align="right">{room.status}</TableCell>
+                                <TableCell align="right">{room.description}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

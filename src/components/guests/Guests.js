@@ -1,27 +1,23 @@
 import { Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
-import React from 'react'
-
-
-
-const rows = [
-    {
-        name: 'Frozen yoghurt',
-        calories: 159,
-        fat: 16.0,
-        carbs: 4,
-        protein: 5
-    },
-    {
-        name: 'Frozen yoghurt',
-        calories: 159,
-        fat: 16.0,
-        carbs: 4,
-        protein: 5
-    }
-];
-
+import React, { useContext, useEffect, useState } from 'react'
+import api from '../../api/axiosConfig';
+import { MyContext } from '../../context/MyContext';
 
 const Guests = () => {
+
+    const { guestList, setGuestList } = useContext(MyContext);
+
+    const getGuests = async () => {
+        const resp = await api.get('/guests');
+        setGuestList(resp.data);
+    }
+
+    useEffect(() => {
+        if (guestList.length <= 0) {
+            getGuests();
+        }
+    }, [])
+
     return (
         <Container>
             <Typography variant="h4" sx={{ marginY: 4 }}>Guests</Typography>
@@ -29,25 +25,25 @@ const Guests = () => {
                 <Table aria-label='simple table' >
                     <TableHead>
                         <TableRow>
-                            <TableCell>Dessert 100g serving</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat</TableCell>
-                            <TableCell align="right">Carbs</TableCell>
-                            <TableCell align="right">Protein</TableCell>
+                            <TableCell>Guest Name</TableCell>
+                            <TableCell align="right">Room Number</TableCell>
+                            <TableCell align="right">Additional Guests</TableCell>
+                            <TableCell align="right">Check In Time</TableCell>
+                            <TableCell align="right">Check Out Time</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map(row => (
-                            <TableRow key={row.name}
+                        {guestList.map(guest => (
+                            <TableRow key={guest.id}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
-                                    {row.name}
+                                    {guest.firstName + " " + guest.lastName}
                                 </TableCell>
-                                <TableCell align="right">{row.calories}</TableCell>
-                                <TableCell align="right">{row.fat}</TableCell>
-                                <TableCell align="right">{row.carbs}</TableCell>
-                                <TableCell align="right">{row.protein}</TableCell>
+                                <TableCell align="right">{guest.roomNum ? guest.roomNum : "Not Assigned"}</TableCell>
+                                <TableCell align="right">{guest.additionalGuests}</TableCell>
+                                <TableCell align="right">{guest.checkIn ? guest.checkIn : "N/A"}</TableCell>
+                                <TableCell align="right">{guest.checkOut ? guest.checkIn : "N/A"}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

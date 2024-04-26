@@ -1,6 +1,6 @@
 import { Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
-import React from 'react'
-
+import React, { useState } from 'react'
+import api from '../../api/axiosConfig';
 
 
 const rows = [
@@ -22,6 +22,9 @@ const rows = [
 
 
 const Reservations = () => {
+
+    const [reservations, setReservations] = useState([]);
+
     return (
         <Container>
             <Typography variant="h4" sx={{ marginY: 4 }}>Reservations</Typography>
