@@ -17,11 +17,10 @@ function App() {
   const [currWeather, setCurrWeather] = useState(null);
   const [roomList, setRoomList] = useState([]);
   const [guestList, setGuestList] = useState([]);
+  const [roomAlertList, setRoomAlertList] = useState([]);
 
     const getCurrentWeather = async () => {
         const resp = await weatherApi.get();
-
-        console.log(resp.data)
         setCurrWeather(resp.data)
     }
 
@@ -32,7 +31,8 @@ function App() {
   return (
     <BrowserRouter >
       <Container className="App" sx={{ lg: { minWidth: '1300px' }, padding: 0 }}>
-        <MyContext.Provider value={{ currWeather, roomList, setRoomList, guestList, setGuestList }}>
+        <MyContext.Provider value={{ currWeather, roomList, setRoomList, 
+          guestList, setGuestList, roomAlertList, setRoomAlertList }}>
           <Box sx={{ height: '100vh', display: 'flex', bgcolor: 'rgb(250, 250, 250)' }}>
             <Menu />
             <Main />

@@ -5,6 +5,7 @@ import RoomAlertCard from "../roomAlert/RoomAlertCard";
 import paris from "../../images/paris.jpg"
 import { useContext, useEffect } from "react";
 import { MyContext } from "../../context/MyContext";
+import api from "../../api/axiosConfig"
 
 const StatItem = styled(Paper)(() => ({
     height: "100%",
@@ -15,12 +16,18 @@ const StatItem = styled(Paper)(() => ({
     minHeight: '140px'
 }));
 
-
-
-
 const Dashboard = () => {
 
-    const { currWeather, roomList } = useContext(MyContext);
+    const { currWeather, roomList, roomAlertList, setRoomAlertList } = useContext(MyContext);
+
+    const getRoomAlerts = async () => {
+        const resp = await api.get("/roomAlerts");
+        setRoomAlertList(resp.data);
+    }
+
+    useEffect(() => {
+        if (roomAlertList.length <= 0) getRoomAlerts();
+    }, [])
 
     return (
         <Container sx={{ width: "100%", minHeight: "100vh", display: 'flex', flexDirection: 'column', alignItems: 'center', rowGap: '100px', flexWrap: 'wrap' }}>
@@ -38,7 +45,7 @@ const Dashboard = () => {
                         </Box>
                     </Paper>
 
-                    <Grid container spacing={2} maxWidth={{xs: '100%', }} height={"100%"} sx={{ alignContent: "right", justifyContent: "center" }} >
+                    <Grid container spacing={2} height={"100%"} sx={{ alignContent: "right", alignItems: 'center', justifyContent: "center" }} >
                         <Grid item xs={6}>
                             <StatItem>
                                 <Typography variant="h6">Occupied</Typography>
@@ -94,10 +101,10 @@ const Dashboard = () => {
                     </Typography>
                     <ArrowForwardTwoTone sx={{ bgcolor: '#335dff', color: 'white', fontSize: 30, transition: 'all 0.3s ease-in-out', cursor: 'pointer' }} />
                 </Box>
-                <Box gap={2} sx={{ display: 'flex', justifyContent: "space-between", flexWrap: "wrap" }}>
-                    <RoomAlertCard />
-                    <RoomAlertCard />
-                    <RoomAlertCard />
+                <Box gap={2} sx={{ display: 'flex', alignItems: 'center', flexWrap: "wrap", justifyContent: 'center', marginBottom: '20px' }}>
+                    {roomAlertList.length >= 1 && roomAlertList.map(alert => (
+                        <RoomAlertCard alert={alert} />
+                    ))}
                 </Box>
             </Box>
         </Container>
